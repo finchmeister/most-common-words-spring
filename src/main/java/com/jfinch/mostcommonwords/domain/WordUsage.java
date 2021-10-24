@@ -1,8 +1,10 @@
-package com.jfinch.mostcommonwords;
+package com.jfinch.mostcommonwords.domain;
 
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @EqualsAndHashCode
+@ToString
 public class WordUsage {
 
     private final String word;

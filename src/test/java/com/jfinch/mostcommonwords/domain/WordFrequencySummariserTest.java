@@ -1,7 +1,12 @@
-package com.jfinch.mostcommonwords;
+package com.jfinch.mostcommonwords.domain;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,6 +44,16 @@ public class WordFrequencySummariserTest {
         );
 
         assertEquals(expectedWordFrequencySummary, wordFrequencySummary);
+
+    }
+
+    @Test
+    void it_can_do_a_full_book() throws IOException {
+//        String text = Files.readString(Path.of("/Users/jfinch/Downloads/frankenstein.txt"), StandardCharsets.UTF_8);
+        String text = Files.readString(Path.of("/Users/jfinch/Downloads/pg1184.txt"), StandardCharsets.UTF_8);
+        WordFrequencySummary wordFrequencySummary = this.wordFrequencySummariser.getWordFrequencySummary(text, 5);
+
+        System.out.println(wordFrequencySummary);
 
     }
 }

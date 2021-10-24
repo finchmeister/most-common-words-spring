@@ -1,9 +1,11 @@
-package com.jfinch.mostcommonwords;
+package com.jfinch.mostcommonwords.domain;
+
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+@Service
 public class WordFrequencySummariser {
 
     private WordFrequencyFinder wordFrequencyFinder;
