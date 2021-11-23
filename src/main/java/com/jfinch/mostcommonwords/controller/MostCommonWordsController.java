@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 @RestController
+@RequestMapping("/api")
 public class MostCommonWordsController {
 
     WordFrequencySummariser wordFrequencySummariser;
@@ -33,7 +35,7 @@ public class MostCommonWordsController {
     }
 
     @PostMapping("/text")
-    WordFrequencySummary getForText(@RequestBody TextRequestDto textRequestDto) {
+    WordFrequencySummary getForText(@RequestBody @Valid TextRequestDto textRequestDto) {
         return this.wordFrequencySummariser.getWordFrequencySummary(textRequestDto.text, this.mostCommonWordLimit);
     }
 
