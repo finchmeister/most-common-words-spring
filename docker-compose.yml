@@ -1,0 +1,9 @@
+services:
+  mostcommonwords:
+    build:
+      context: .
+      target: production
+    ports:
+      - 8080:8080
+    environment:
+      - SERVER_PORT=8080
