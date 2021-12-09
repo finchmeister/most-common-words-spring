@@ -151,7 +151,7 @@ document.addEventListener('submit', function (event) {
     hideElement(submitText);
     revealElement(submitSpinner);
 
-    fetch('http://localhost:8080/api/text', {
+    fetch('/api/text', {
         method: 'POST',
         body: JSON.stringify(Object.fromEntries(new FormData(event.target))),
         headers: {
