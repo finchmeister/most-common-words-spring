@@ -1,5 +1,11 @@
 services:
-  mostcommonwords:
+  frontend:
+    image: nginx
+    ports:
+      - 8081:80
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+  api:
     build:
       context: .
       target: development
