@@ -1,18 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Most Commonly Used Words">
+    <meta name="description" content="Find the most commonly used words within any string of text.">
+    <meta name="keywords" content="words,english,common,finder,java,spring,heroku">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Most Commonly Used Words</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Corinthia&family=Lora&display=swap');
@@ -29,12 +34,10 @@
         .table>:not(caption)>*>* {
             padding: .5rem .0rem;
         }
-
-
     </style>
-    <title>Hello, world!</title>
+
 </head>
-<body>
+<body class="bg-light">
 
 <div class="container py-4 col-lg-6">
 
@@ -53,7 +56,7 @@
                     <textarea class="form-control my-2" id="form-field-text" name="text" rows="10">There's a passage that I got memorized, seems appropiate for this situation: Ezekiel 25,17. "The path of the righteous man is beset of all sides by the iniquities of the selfish and the tyranny of evil me. Blessed is he who, in the name of the charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know my name is the Lord when I lay my vengeance upon thee.</textarea>
                 </div>
                 <div class="form-group d-grid">
-                    <button type="submit" class="btn btn-primary my-2"><span id="submit-text">Submit</span><div id="submit-spinner" class="spinner-border spinner-border-sm text-light d-none" role="status"></div></button>
+                    <button type="submit" class="btn btn-secondary my-2"><span id="submit-text">Submit</span><div id="submit-spinner" class="spinner-border spinner-border-sm text-light d-none" role="status"></div></button>
                 </div>
             </form>
         </div>
@@ -84,9 +87,9 @@
         </div>
     </div>
 
-<!--    <footer class="pt-5 my-5 text-muted border-top">-->
-<!--        <a href="https://github.com/finchmeister/most-common-words-spring">Source</a>   -   © 2021-->
-<!--    </footer>-->
+    <footer class="pt-5 my-5 text-muted border-top">
+        <a class="link-secondary" href="https://github.com/finchmeister/most-common-words-spring">Source code</a> - 2021
+    </footer>
 
 </div>
 
@@ -171,6 +174,9 @@ document.addEventListener('submit', function (event) {
         updateValue(totalWordCount, data.wordCount);
         revealElement(resultsContainer);
     }).catch(function (error) {
+        revealElement(submitText);
+        hideElement(submitSpinner);
+
         console.warn(error);
     });
 });
